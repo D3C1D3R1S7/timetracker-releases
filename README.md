@@ -3,25 +3,30 @@
 Zeiterfassung für den Arbeitsalltag: Timer, Wochenkalender, Projekte mit WOT-Kontingenten, Aufgaben,
 Outlook-Kalender (Import und Export), Berichte und Übertragung nach ServiceNow.
 
-Hier liegen nur die fertigen Installationspakete. Die aktuelle Version findest du unter
-**[Releases](../../releases/latest)**.
+Es gibt die App in zwei Varianten mit gleichen Funktionen – du brauchst nur eine:
+
+- **Time Tracker** – die Standard-Version (Oberfläche im eingebauten Browser-Fenster).
+- **Time Tracker Slint** – native Oberfläche, kleiner und ohne Browser-Komponente.
+
+Jedes Release enthält beide. Die aktuelle Version findest du unter **[Releases](../../releases/latest)**.
 
 > **Lizenz erforderlich:** Installation und Nutzung sind nur mit einem gültigen Lizenzschlüssel erlaubt
 > (siehe [LICENSE](LICENSE)). Ohne Schlüssel startet die App nicht.
 
 ## Welche Datei?
 
-| System | Datei | Hinweis |
+| System | Time Tracker | Time Tracker Slint |
 |---|---|---|
-| Windows 10/11 (64 Bit) | `Time-Tracker_<Version>_x64-setup.exe` | Installer, empfohlen |
-| Linux (64 Bit) | `…_amd64.AppImage` | eine Datei, läuft ohne Installation |
-| Linux Debian/Ubuntu | `…_amd64.deb` | Paket mit Startmenü-Eintrag |
-| Linux Fedora/openSUSE | `…x86_64.rpm` | Paket mit Startmenü-Eintrag |
-| macOS Apple Silicon (M1–M4) | `…_aarch64.dmg` | |
-| macOS Intel | `…_x64.dmg` | |
+| Windows 10/11 (64 Bit) | `Time-Tracker_<Version>_x64-setup.exe` | `Time-Tracker-Slint_<Version>_x64-setup.exe` |
+| Windows ohne Installation | – | `time-tracker-slint.exe` |
+| Linux (eine Datei) | `…_amd64.AppImage` | `Time-Tracker-Slint_<Version>_x86_64.AppImage` |
+| Linux Debian/Ubuntu | `…_amd64.deb` | `time-tracker-slint_<Version>_amd64.deb` |
+| Linux Fedora/openSUSE | `…x86_64.rpm` | `time-tracker-slint_<Version>_linux-x64.tar.gz` (nur die Programmdatei) |
+| macOS Apple Silicon (M1–M4) | `…_aarch64.dmg` | `Time-Tracker-Slint_<Version>_macos-aarch64.dmg` |
+| macOS Intel | `…_x64.dmg` | `Time-Tracker-Slint_<Version>_macos-x64.dmg` |
 
-Die Dateien `.sig`, `.app.tar.gz` und `latest.json` sind für die automatische Update-Prüfung – die brauchst du
-nicht herunterzuladen.
+Die Dateien `.sig`, `.app.tar.gz`, `latest.json` und `latest-slint.json` sind für die automatische Update-Prüfung –
+die brauchst du nicht herunterzuladen.
 
 ## Installieren
 
@@ -30,13 +35,13 @@ nicht herunterzuladen.
 Lizenzschlüssel.
 
 **Linux:**
-- AppImage: `chmod +x Time-Tracker_*.AppImage` und starten.
-- .deb: `sudo apt install ./Time-Tracker_*_amd64.deb`
-- .rpm: `sudo dnf install ./Time-Tracker-*.x86_64.rpm`
+- AppImage: `chmod +x *.AppImage` und starten.
+- .deb: `sudo apt install ./<Datei>.deb`
+- .rpm: `sudo dnf install ./<Datei>.rpm`
+- Benötigt GTK 3 und die AppIndicator-Bibliothek (bei den meisten Desktops vorhanden; die Pakete installieren sie mit).
 
-**macOS:** `.dmg` öffnen und „Time Tracker“ in den Ordner „Programme“ ziehen. Die App ist nicht notarisiert:
-beim ersten Start per **Rechtsklick → Öffnen** starten (oder im Terminal
-`xattr -dr com.apple.quarantine "/Applications/Time Tracker.app"`).
+**macOS:** `.dmg` öffnen und die App in den Ordner „Programme“ ziehen. Die App ist nicht notarisiert: beim ersten
+Start per **Rechtsklick → Öffnen** starten (oder im Terminal `xattr -dr com.apple.quarantine "/Applications/<App>.app"`).
 
 ## Lizenzschlüssel
 
@@ -45,18 +50,24 @@ beim ersten Start per **Rechtsklick → Öffnen** starten (oder im Terminal
 3. Schlüssel eintragen – fertig. Zusätzliche Funktionen (z. B. Outlook, ServiceNow, Widget) werden mit einem
    Funktions-Schlüssel unter **Einstellungen → Lizenz** freigeschaltet.
 
-Der Schlüssel gilt nur für diesen Rechner. Läuft er ab, sperrt sich die App, bis ein neuer eingetragen ist –
-deine Daten bleiben dabei erhalten.
+Der Schlüssel gilt nur für diesen Rechner und für beide Varianten. Läuft er ab, sperrt sich die App, bis ein neuer
+eingetragen ist – deine Daten bleiben dabei erhalten.
 
 ## Updates
 
 Unter **Einstellungen → Updates → Update-Adresse** eintragen:
 
-```
-https://github.com/D3C1D3R1S7/timetracker-releases/releases/latest/download/latest.json
-```
+- Time Tracker:
+  ```
+  https://github.com/D3C1D3R1S7/timetracker-releases/releases/latest/download/latest.json
+  ```
+- Time Tracker Slint (Windows):
+  ```
+  https://github.com/D3C1D3R1S7/timetracker-releases/releases/latest/download/latest-slint.json
+  ```
 
-Die App meldet dann neue Versionen und installiert sie auf Wunsch selbst.
+Die App meldet dann neue Versionen und installiert sie auf Wunsch selbst. Slint unter Linux und macOS: die neue Datei
+von der Release-Seite laden.
 
 ## Deine Daten
 
